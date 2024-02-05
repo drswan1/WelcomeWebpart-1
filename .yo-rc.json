@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "18.18.2",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.12.0"
+    },
+    "version": "1.18.1",
+    "libraryName": "welcome",
+    "libraryId": "f33075d5-7e01-420f-bc6b-ebec48f9496a",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "Welcome",
+    "solutionShortDescription": "Welcome description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

@@ -1,0 +1,138 @@
+
+
+label{
+  font-size: 24px;
+  font-weight: 700; 
+  cursor: pointer; 
+  color: #525d6f; 
+  opacity: .4; 
+  transition: opacity .4s ease-in-out;
+  display: block; 
+  width: calc(100% - 48px) ;
+  text-align: right; 
+  z-index: 100; 
+  user-select: none;
+  margin:7.5%;
+
+  
+}
+input[type="radio"]{
+  display: none;
+  width: 0;
+}
+label:hover, input[type="radio"]:checked+label {
+  opacity: 1; 
+}
+.popup{
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  height: 75%;
+  min-height: 18rem;
+  border-radius: 3px;
+  box-sizing: border-box; 
+
+  background-color: #fcfcfc;
+  overflow: hidden;
+  box-shadow: 16px 16px 48px #2e364330;
+  font-family: Segoe UI;
+}
+.tabs{
+  display:flex;
+  width: 100%;
+  max-width: 240px;
+  height: 100%;
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-around; 
+  position: relative;
+  align-items: flex-end;
+  flex-shrink: 0;
+  border: 1px;
+}
+.marker{
+  position: absolute; 
+  width: 100%;
+  height: 200%;
+  display: flex; 
+  flex-direction: column;
+  top: calc(-100% );
+  left: 0;
+  transition: transform .2s ease-in-out; 
+}
+.marker #bottom, .marker #top{
+  background-color: #ffffff;
+  box-shadow: 32px 32px 48px #2e364315; 
+}
+.marker #top{
+  height: calc(47%);
+  margin-bottom: auto; 
+  border-radius: 0 0 32px 0; 
+}
+.marker #bottom{
+  height: calc(35% );
+  border-radius: 0 32px 0 0; 
+}
+.icons {
+  height: 2.2rem;
+  width: 2.2rem;
+}
+
+#tab1:checked ~ .marker{transform: translateY(calc(calc(50% / 3) * 0));}
+#tab2:checked ~ .marker{transform: translateY(calc(calc(60% / 3) * 1));}
+#tab3:checked ~ .marker{transform: translateY(calc(calc(57% / 3) * 2));}
+
+
+//--------------------------------Flex Container-------------------------//
+.flexContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+
+.slogan{
+border: 1px;
+font-style: italic;
+
+}
+.description{
+
+  width:90%;
+  margin-top: 2.5rem;
+  margin-bottom: 2.7rem;
+  margin-right: .1rem;
+
+
+}
+
+
+.logos{
+  background-image: url("./assets/Orientiert.png");
+  background-size: contain;
+  height: 4.2rem;
+  width: 4.2rem;
+  margin: .25rem;
+  margin-top: 1.35rem;
+  
+}
+
+.btn{
+  padding: 8px 14px;
+  cursor: pointer;
+  border: 2px solid black;
+  background-color: #b7342e;
+  color: white;
+  font-weight: bolder;
+  box-shadow: 2px 2px 0 0 white,
+  4px 4px 0 0 #0f172a;
+  transition: 200ms;
+}
+
+.btn:hover{
+  box-shadow: 3px 3px white,
+  6px 6px 0 0 #0f172a;
+  transform:  translate(-2px, -2px);
+}
