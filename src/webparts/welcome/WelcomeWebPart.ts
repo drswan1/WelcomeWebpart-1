@@ -8,7 +8,6 @@ export interface IWelcomeWebPartProps {
 }
 
 export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPartProps> {
-  public sloganArray: string[] = ["Das digitale Morgenrot für deinen Studienalltag", "Was passiert an der PLUS?", "Weil dein Studium mehr als nur Lehrveranstaltung ist!"];
   public descriptionArray: string[] = ["Hier ist dein digitaler Schreibtisch. Du kannst dir einen Überblick verschaffen und dein akademisches Leben organisieren. Du findest hier Info von allen Microsoft-Plattformen an einem Ort.", "Hier findest du alle wichtigen Informationen, die du für dein Studium brauchst. Du kannst dich über aktuelle Veranstaltungen informieren und dich mit anderen Studierenden austauschen.", "Hier kannst du dich mit anderen Studierenden vernetzen und dich über aktuelle Themen austauschen. Du kannst dich mit anderen Studierenden vernetzen und dich über aktuelle Themen austauschen.", "Bei dieser Seite handelt sich um eine Sammlung allgemeiner Informationen, die dir dabei helfen sollen, Antworten auf Fragen im Zusammenhang mit der PLUS und deinem Studium zu finden.", "Hier wird's sozial - du findest Informationen zu STV-Veranstaltungen, Zusammenkünften und verschiedenen Studierenden-Communities. Verpasse kein Event an der PLUS!"];
   public IDtoContentKey: { [key: string]: number } = { tab1: 0, tab2: 1, tab3: 2 };
   public logosArray: string[] = ["Orientiert.png", "Informiert.svg", "Verbunden.svg"];
@@ -42,7 +41,6 @@ export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPar
       </div>
       <div class="${styles.flexContainer}">
         <div class="${styles.logos}"></div>
-        <div class="${styles.slogan}">Das digitale Morgenrot für deinen Studienalltag</div>
         <div class="${styles.description}">Hier ist dein digitaler Schreibtisch. Du kannst dir einen Überblick verschaffen und dein akademisches Leben organisieren. Du findest hier Info von allen Microsoft-Plattformen an einem Ort.</div>
         <button class="${styles.btn}">Hier geht's lang!</button>
       </div>
@@ -56,7 +54,6 @@ export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPar
 
 
     const radioButtons = document.querySelectorAll('input[type="radio"]');
-    const slogan = document.querySelector(`.${styles.slogan}`);
     const descriptionElement = document.querySelector(`.${styles.description}`) as HTMLElement | null;
     const logos = document.querySelector(`.${styles.logos}`) as HTMLElement | null;
     console.log("We are here");
@@ -64,9 +61,10 @@ export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPar
     radioButtons.forEach((radioButton) => {
       console.log("inside the loop");
       radioButton.addEventListener('change', () => {
-        if (slogan && descriptionElement && logos) {
-          const arrayKey = this.IDtoContentKey[radioButton.id];
-          (slogan as HTMLElement).innerText = this.sloganArray[arrayKey];
+        console.log("listener triggered");
+        if (descriptionElement && logos) {
+          console.log("if-loop triggered");
+          let arrayKey = this.IDtoContentKey[radioButton.id];
           descriptionElement.innerText = this.descriptionArray[arrayKey];
           logos.style.backgroundImage = `url(${require('./assets/' + this.logosArray[arrayKey])})`;
           console.log("We are here");

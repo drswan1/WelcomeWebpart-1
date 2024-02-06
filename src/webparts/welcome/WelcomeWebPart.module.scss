@@ -93,16 +93,12 @@ label:hover, input[type="radio"]:checked+label {
   
 }
 
-.slogan{
-border: 1px;
-font-style: italic;
 
-}
 .description{
 
-  width:90%;
-  margin-top: 2.5rem;
-  margin-bottom: 2.7rem;
+  width:80%;
+  margin-top: .5rem;
+  margin-bottom: 2.0rem;
   margin-right: .1rem;
 
 
@@ -112,27 +108,28 @@ font-style: italic;
 .logos{
   background-image: url("./assets/Orientiert.png");
   background-size: contain;
-  height: 4.2rem;
-  width: 4.2rem;
+  height: 8rem;
+  width: 8rem;
   margin: .25rem;
-  margin-top: 1.35rem;
+  margin-top: 1.7rem;
   
 }
 
 .btn{
+  border-radius: 3px;
   padding: 8px 14px;
   cursor: pointer;
-  border: 2px solid black;
+  border: 2px solid white;
   background-color: #b7342e;
   color: white;
   font-weight: bolder;
-  box-shadow: 2px 2px 0 0 white,
-  4px 4px 0 0 #0f172a;
+  box-shadow:
+  4px 4px 0 0 #f3f3f4;
   transition: 200ms;
 }
 
 .btn:hover{
   box-shadow: 3px 3px white,
-  6px 6px 0 0 #0f172a;
+  6px 6px 0 0 #d4d4d4;
   transform:  translate(-2px, -2px);
 }
