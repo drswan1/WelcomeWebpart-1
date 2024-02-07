@@ -173,15 +173,15 @@ radioButtons.forEach((radioButton) => {
         // Call the animateTextReveal function for each element after a delay
         setTimeout(() => {
           animateTextReveal(logos as HTMLElement);
-        }, 300); // Adjust the delay as needed
+        }, 100); // Adjust the delay as needed
 
         setTimeout(() => {
           animateTextReveal(description as HTMLElement);
-        }, 500); // Adjust the delay as needed
+        }, 250); // Adjust the delay as needed
 
         setTimeout(() => {
           animateTextReveal(anchor as HTMLElement);
-        }, 900); // Adjust the delay as needed
+        }, 400); // Adjust the delay as needed
 
     });
   });

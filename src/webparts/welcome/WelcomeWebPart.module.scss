@@ -60,7 +60,7 @@ label:hover, input[type="radio"]:checked+label {
 }
 .marker #bottom, .marker #top{
   background-color: #ffffff;
-  box-shadow: 32px 32px 48px #2e364315; 
+  box-shadow: 32px 0px 64px #14171c15; 
 }
 .marker #top{
   height: calc(47%);
@@ -147,19 +147,21 @@ label[for="${styles.tab3}"] #three {
 }
 
 .description {
-
   width: 80%;
   margin-top: 0.5rem;
   margin-right: 0.1rem;
+  margin-bottom: 1rem;
+  font-size: larger;
 }
 
 .logos {
   background-image: url("./assets/Orientiert.png");
   background-size: contain;
-  height: 7rem;
-  width: 7rem;
+  height: 8.5rem;
+  width: 8.5rem;
   margin: 0.25rem;
   margin-top: 1.7rem;
+  margin-bottom: .5rem;
 }
 
 .btn {                    //fix problem of button postioning when description text is too long
