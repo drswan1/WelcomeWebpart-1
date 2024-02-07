@@ -2,7 +2,7 @@
 
 label{
   font-size: 24px;
-  font-weight: 700; 
+  font-weight: 500; 
   cursor: pointer; 
   color: #525d6f; 
   opacity: .4; 
@@ -13,8 +13,6 @@ label{
   z-index: 100; 
   user-select: none;
   margin:7.5%;
-
-  
 }
 input[type="radio"]{
   display: none;
@@ -77,6 +75,62 @@ label:hover, input[type="radio"]:checked+label {
   height: 2.2rem;
   width: 2.2rem;
 }
+//__________________________Tabs__________________________//
+label[for="${styles.tab1}"] {
+  /* Ensure the label is displayed as a block element */
+  display: block;
+  /* Center the text horizontally */
+  text-align: center;
+}
+
+label[for="${styles.tab1}"] #one {
+  /* Optionally, adjust the padding to center vertically */
+  padding-top: 50%; /* Adjust as needed */
+  /* Reset any previous text-align property */
+  text-align: inherit;
+}
+//__________________________Tabs__________________________//
+
+label[for="${styles.tab2}"] {
+  /* Ensure the label is displayed as a block element */
+  display: block;
+  /* Center the text horizontally */
+  text-align: center;
+}
+
+label[for="${styles.tab2}"] #two {
+  /* Optionally, adjust the padding to center vertically */
+  padding-top: 50%; /* Adjust as needed */
+  /* Reset any previous text-align property */
+  text-align: inherit;
+}
+//__________________________Tabs__________________________//
+label[for="${styles.tab3}"] {
+  /* Ensure the label is displayed as a block element */
+  display: block;
+  /* Center the text horizontally */
+  text-align: center;
+}
+
+label[for="${styles.tab3}"] #three {
+  /* Optionally, adjust the padding to center vertically */
+  padding-top: 50%; /* Adjust as needed */
+  /* Reset any previous text-align property */
+  text-align: inherit;
+}
+
+
+#one{
+  visibility: visible;
+}
+
+#two{
+  visibility: visible;
+}
+
+#three{
+  visibility: visible;
+}
 
 #tab1:checked ~ .marker{transform: translateY(calc(calc(50% / 3) * 0));}
 #tab2:checked ~ .marker{transform: translateY(calc(calc(60% / 3) * 1));}
@@ -84,38 +138,34 @@ label:hover, input[type="radio"]:checked+label {
 
 
 //--------------------------------Flex Container-------------------------//
-.flexContainer{
+.flexContainer {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  
 }
 
+.description {
 
-.description{
-
-  width:80%;
-  margin-top: .5rem;
-  margin-bottom: 2.0rem;
-  margin-right: .1rem;
-
-
+  width: 80%;
+  margin-top: 0.5rem;
+  margin-right: 0.1rem;
 }
 
-
-.logos{
+.logos {
   background-image: url("./assets/Orientiert.png");
   background-size: contain;
-  height: 8rem;
-  width: 8rem;
-  margin: .25rem;
+  height: 7rem;
+  width: 7rem;
+  margin: 0.25rem;
   margin-top: 1.7rem;
-  
 }
 
-.btn{
+.btn {                    //fix problem of button postioning when description text is too long
+  display: block;
+  position: absolute;
+  top:110%;
   border-radius: 3px;
   padding: 8px 14px;
   cursor: pointer;
@@ -123,12 +173,13 @@ label:hover, input[type="radio"]:checked+label {
   background-color: #b7342e;
   color: white;
   font-weight: bolder;
-  box-shadow:
-  4px 4px 0 0 #f3f3f4;
+  box-shadow: 4px 4px 0 0 #f3f3f4;
   transition: 200ms;
+  
 }
 
-.btn:hover{
+
+.anchor:hover{
   box-shadow: 3px 3px white,
   6px 6px 0 0 #d4d4d4;
   transform:  translate(-2px, -2px);
