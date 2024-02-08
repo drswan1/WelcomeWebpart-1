@@ -177,11 +177,11 @@ radioButtons.forEach((radioButton) => {
 
         setTimeout(() => {
           animateTextReveal(description as HTMLElement);
-        }, 250); // Adjust the delay as needed
+        }, 200); // Adjust the delay as needed
 
         setTimeout(() => {
           animateTextReveal(anchor as HTMLElement);
-        }, 400); // Adjust the delay as needed
+        }, 250); // Adjust the delay as needed
 
     });
   });
