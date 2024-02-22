@@ -1,3 +1,37 @@
+@media (max-width: 950px) {
+  .popup {
+    flex-direction: column;
+    border: 1px solid black;	
+  }
+
+  .tabs {
+    flex-direction: row;
+  }
+
+  .marker {
+    all:initial;
+    all: unset;
+  }
+  .label {
+    all:initial;
+    all: unset;
+  }
+
+  .marker #top {
+    visibility: hidden;
+  }
+  .marker #bottom {
+    visibility: hidden;
+  }
+
+  input[type="radio"]{
+    display: none;
+    width: 0;
+  }
+}
+
+  
+
 
 
 label{
@@ -64,7 +98,6 @@ label:hover, input[type="radio"]:checked+label {
 }
 .marker #top{
   height: calc(47%);
-  margin-bottom: auto; 
   border-radius: 0 0 32px 0; 
 }
 .marker #bottom{

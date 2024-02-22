@@ -46,8 +46,8 @@ export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPar
       <div class="${styles.flexContainer}">
         <div class="${styles.logos}"></div>
         <div class="${styles.description}">Hier ist dein digitaler Schreibtisch. Du kannst dir einen Überblick verschaffen und dein akademisches Leben organisieren. Du findest hier Info von allen Microsoft-Plattformen an einem Ort.</div>
-        <a class="${styles.btn} href="${this.linkArray[0]}">Hier geht's lang!</a>
-      </div>
+        <a class="${styles.btn}" href="${this.linkArray[0]}">Hier geht's lang!</a>
+        </div>
     </div>
     </div>
     <!-- partial -->
