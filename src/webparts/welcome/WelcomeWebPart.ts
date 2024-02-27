@@ -40,6 +40,7 @@ export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPar
           </label>
           <div class="${styles.marker}">
              <div id="${styles.top}"></div>
+              <div id="${styles.middle}"></div>
              <div id="${styles.bottom}"></div>
           </div>
       </div>

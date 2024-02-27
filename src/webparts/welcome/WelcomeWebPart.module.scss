@@ -1,38 +1,107 @@
 @media (max-width: 950px) {
   .popup {
+    height: 200%;
+    width:100%;
     flex-direction: column;
     border: 1px solid black;	
   }
 
   .tabs {
+    display : flex;
     flex-direction: row;
   }
 
-  .marker {
-    all:initial;
-    all: unset;
-  }
-  .label {
-    all:initial;
-    all: unset;
-  }
+/* For leftMarker */
+#top {
+  border-top: 3px solid #c4c4c4;
+  border-radius: 32px;
+  width: calc(25%);
+}
 
-  .marker #top {
-    visibility: hidden;
-  }
-  .marker #bottom {
-    visibility: hidden;
-  }
+/* For middleMarker */
+#middle {
+  border-bottom: 2px solid #c4c4c4;
+  border-bottom-left-radius: 32px;
+  box-shadow: 0px 15px 36px -20px #e7e7e7;
+  width: calc(50%);
+}
+
+/* For rightMarker */
+#right {
+  border-bottom: 2px solid #c4c4c4;
+  box-shadow: 0px 15px 36px -20px #e7e7e7;
+  width: calc(50%);
+}
+
 
   input[type="radio"]{
     display: none;
     width: 0;
   }
+  .marker{
+  margin-top: 5%;
+  height: 75%;
+  width: 100%;
+  position: absolute; 
+  display: flex; 
+  flex-direction: row;
+  // transition: transform .2s ease-in-out;
+  z-index: 0;
+  }
 }
 
+@media(width>950px){
+  .popup{
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 75%;
+    min-height: 18rem;
+    border-radius: 3px;
+    box-sizing: border-box; 
   
+    background-color: #fcfcfc;
+    overflow: hidden;
+    box-shadow: 16px 16px 48px #2e364330;
+    font-family: Segoe UI;
+  }
 
+  .tabs{
+    display:flex;
+    width: 100%;
+    max-width: 240px;
+    height: 100%;
+    flex-direction: column; 
+    justify-content: space-around; 
+    position: relative;
+    align-items: flex-end;
+    flex-shrink: 0;
+    border: 1px;
+  }
+  .marker{
+    position: absolute; 
+    width: 100%;
+    height: 200%;
+    display: flex; 
+    flex-direction: column;
+    top: calc(-100% );
+    left: 0;
+    transition: transform .2s ease-in-out; 
+  }
+  .marker #bottom, .marker #top{
+    background-color: #ffffff;
+    box-shadow: 32px 0px 64px #14171c15; 
+  }
+  .marker #top{
+    height: calc(47%);
+    border-radius: 0 0 32px 0; 
+  }
+  .marker #bottom{
+    height: calc(35% );
+    border-radius: 0 32px 0 0; 
+  }
 
+  
 
 label{
   font-size: 24px;
@@ -55,55 +124,9 @@ input[type="radio"]{
 label:hover, input[type="radio"]:checked+label {
   opacity: 1; 
 }
-.popup{
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  height: 75%;
-  min-height: 18rem;
-  border-radius: 3px;
-  box-sizing: border-box; 
 
-  background-color: #fcfcfc;
-  overflow: hidden;
-  box-shadow: 16px 16px 48px #2e364330;
-  font-family: Segoe UI;
-}
-.tabs{
-  display:flex;
-  width: 100%;
-  max-width: 240px;
-  height: 100%;
-  display: flex;
-  flex-direction: column; 
-  justify-content: space-around; 
-  position: relative;
-  align-items: flex-end;
-  flex-shrink: 0;
-  border: 1px;
-}
-.marker{
-  position: absolute; 
-  width: 100%;
-  height: 200%;
-  display: flex; 
-  flex-direction: column;
-  top: calc(-100% );
-  left: 0;
-  transition: transform .2s ease-in-out; 
-}
-.marker #bottom, .marker #top{
-  background-color: #ffffff;
-  box-shadow: 32px 0px 64px #14171c15; 
-}
-.marker #top{
-  height: calc(47%);
-  border-radius: 0 0 32px 0; 
-}
-.marker #bottom{
-  height: calc(35% );
-  border-radius: 0 32px 0 0; 
-}
+
+
 .icons {
   height: 2.2rem;
   width: 2.2rem;
@@ -164,10 +187,14 @@ label[for="${styles.tab3}"] #three {
 #three{
   visibility: visible;
 }
-
+  
 #tab1:checked ~ .marker{transform: translateY(calc(calc(50% / 3) * 0));}
 #tab2:checked ~ .marker{transform: translateY(calc(calc(60% / 3) * 1));}
 #tab3:checked ~ .marker{transform: translateY(calc(calc(57% / 3) * 2));}
+}
+
+
+
 
 
 //--------------------------------Flex Container-------------------------//
