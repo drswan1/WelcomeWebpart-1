@@ -64,9 +64,11 @@ const btn = this.domElement.querySelector(`.${styles.btn}`);
 
 const correspondingIcon = document.querySelector(`label[for="${styles.tab1}"] img`);
 const correspondingLabel = document.querySelector(`label[for="${styles.tab1}"] div`);
-
-(correspondingIcon as HTMLElement).style.visibility = 'hidden';
-(correspondingLabel as HTMLElement).style.fontWeight = '900';
+const viewpointWidth: number = window.innerWidth;
+if(viewpointWidth > 950){
+  (correspondingIcon as HTMLElement).style.visibility = 'hidden';
+  (correspondingLabel as HTMLElement).style.fontWeight = '900';
+}
 (correspondingLabel as HTMLElement).style.paddingBottom = '20%';
 
 const anchor = document.createElement('a');
@@ -131,13 +133,18 @@ radioButtons.forEach((radioButton) => {
         });
 
         // Hide the image associated with the selected radio button
-        const correspondingIcon = document.querySelector(`label[for="${radioButton.id}"] img`);
-        (correspondingIcon as HTMLElement).style.visibility = 'hidden';
+        if(viewpointWidth > 950){	
+          const correspondingIcon = document.querySelector(`label[for="${radioButton.id}"] img`);
+          (correspondingIcon as HTMLElement).style.visibility = 'hidden';
 
-        // Set font weight for the corresponding label element
-        const correspondingLabel = document.querySelector(`label[for="${radioButton.id}"] div`);
-        (correspondingLabel as HTMLElement).style.fontWeight = '900';
-  
+          // Set font weight for the corresponding label element
+          const correspondingLabel = document.querySelector(`label[for="${radioButton.id}"] div`);
+          (correspondingLabel as HTMLElement).style.fontWeight = '900';
+        }
+        else{
+          const correspondingIcon = document.querySelector(`label[for="${radioButton.id}"] img`);
+          (correspondingIcon as HTMLElement).style.visibility = 'visible';
+        }
 
         const description = document.querySelector(`.${styles.description}`);
       
