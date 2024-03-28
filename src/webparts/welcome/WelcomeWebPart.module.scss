@@ -4,8 +4,26 @@
     width:100%;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    
     // height: fit-content;
+  }
+
+  input[type="radio"]{
+    display: none;
+    width: 0;
+  }
+.title{
+  font-weight: bolder;
+}
+  label{
+    cursor: pointer; 
+    opacity: .4; 
+    transition: opacity .4s ease-in-out;
+    user-select: none;
+  }
+
+  label:hover, input[type="radio"]:checked+label {
+    opacity: 1; 
   }
 
   .tabs {
@@ -17,8 +35,8 @@
   }
 
   .icons{
-    height: 5.5rem;
-    width: 5.5rem;
+    height: 4rem;
+    width: 4rem;
   }
 
   .logos {
@@ -34,27 +52,33 @@
     align-items: center;
 
   }
-
+  .description {
+    width: 80%;
+    margin-top: -3rem;
+    margin-right: 0.1rem;
+    margin-bottom: 1rem;
+    font-size: larger;
+  }
 
 /* For leftMarker */
 #top {
-  border-top: 3px solid #c4c4c4;
+  border-top: 3px solid #ebebeb;
   border-radius: 32px;
-  width: calc(25%);
+  width: calc(50%);
 }
 
 /* For middleMarker */
 #middle {
-  border-bottom: 2px solid #c4c4c4;
+  border-bottom: 2px solid #ebebeb;
   border-bottom-left-radius: 32px;
-  box-shadow: 0px 15px 36px -20px #e7e7e7;
+  box-shadow: 0px 15px 36px -20px #e9e9e9;
   width: calc(50%);
 }
 
 /* For rightMarker */
-#right {
-  border-bottom: 2px solid #c4c4c4;
-  box-shadow: 0px 15px 36px -20px #e7e7e7;
+#bottom {
+  border-bottom: 2px solid #ebebeb;
+  box-shadow: 0px 15px 36px -20px #e9e9e9;
   width: calc(50%);
 }
 
@@ -68,8 +92,8 @@
     width: 0;
   }
   .marker{
-  // margin-top: 2.5%;
-  height: 20%;
+  margin-top: -3.25%;
+  height: 25%;
   width: 100%;
   position: absolute; 
   display: flex; 
@@ -81,6 +105,13 @@
 }
 
 @media(width>950px){
+  .description {
+    width: 80%;
+    margin-top: 0.5rem;
+    margin-right: 0.1rem;
+    margin-bottom: 1rem;
+    font-size: larger;
+  }
 
   .flexContainer {
     display: flex;
@@ -245,14 +276,6 @@ label[for="${styles.tab3}"] #three {
 
 //--------------------------------Flex Container-------------------------//
 
-
-.description {
-  width: 80%;
-  margin-top: 0.5rem;
-  margin-right: 0.1rem;
-  margin-bottom: 1rem;
-  font-size: larger;
-}
 
 
 
