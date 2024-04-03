@@ -12,11 +12,7 @@ export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPar
   public IDtoContentKey: { [key: string]: number } = { tab1: 0, tab2: 1, tab3: 2 };
   public logosArray: string[] = ["Orientiert.png", "Informiert.svg", "Verbunden.svg"];
   public btnArray: string[] = ["#b7342e", "#115740", "#de7e44"];
-  public elements= [
-    document.getElementById('one'),
-    document.getElementById('two'),
-    document.getElementById('three')
-  ];
+
   public linkArray : string[] = ["https://twhrg.sharepoint.com/Orientiert/SitePages/Home.aspx","https://twhrg.sharepoint.com/Informiert/SitePages/Home.aspx","https://twhrg.sharepoint.com/Verbunden/SitePages/Home.aspx"];
 
   public render(): void {
@@ -64,82 +60,26 @@ const logos = this.domElement.querySelector(`.${styles.logos}`);
 const btn = this.domElement.querySelector(`.${styles.btn}`);
 const title = this.domElement.querySelector(`.${styles.title}`);
 
-const correspondingIcon = document.querySelector(`label[for="${styles.tab1}"] img`);
-const correspondingLabel = document.querySelector(`label[for="${styles.tab1}"] div`);
+
+(title as HTMLElement).innerText = this.logosArray[0].split('.')[0];
 const viewpointWidth: number = window.innerWidth;
 
+// const correspondingIcon = document.querySelector(`label[for="${styles.tab1}"] img`);
+const correspondingLabel = document.querySelector(`label[for="${styles.tab1}"] div`);
+if(viewpointWidth >= 950){
+// (correspondingIcon as HTMLElement).style.visibility = 'hidden';
+(correspondingLabel as HTMLElement).style.fontWeight = '900';
 (correspondingLabel as HTMLElement).style.paddingBottom = '20%';
+}
 
-const anchor = document.createElement('a');
-anchor.href = this.linkArray[0];
-anchor.textContent = "Hier geht's lang!";
-anchor.style.cssText = `
-  border-radius: 3px;
-  display: block;
-  position: absolute;
-  top: 110%;
-  padding: 8px 14px;
-  cursor: pointer;
-  border: 2px solid white;
-  color: white;
-  font-weight: bolder;
-  box-shadow: 4px 4px 0 0 #f3f3f4;
-  transition: 200ms;
-  text-decoration: none;
-  background-color: ${this.btnArray[0]};
-  visibility: none;
-`;
-
-if(viewpointWidth > 950){
-  (correspondingIcon as HTMLElement).style.visibility = 'hidden';
-  (correspondingLabel as HTMLElement).style.fontWeight = '900';
-  anchor.style.cssText = `
-  border-radius: 3px;
-  display: block;
-  position: absolute;
-  top: 110%;
-  padding: 8px 14px;
-  cursor: pointer;
-  border: 2px solid white;
-  color: white;
-  font-weight: bolder;
-  box-shadow: 4px 4px 0 0 #f3f3f4;
-  transition: 200ms;
-  text-decoration: none;
-  background-color: ${this.btnArray[0]};
-  visibility: none;
-`;
-}
-if(viewpointWidth < 950){
-  anchor.style.cssText = `
-  border-radius: 3px;
-  display: block;
-  position: absolute;
-  top: 75%;
-  padding: 8px 14px;
-  cursor: pointer;
-  border: 2px solid white;
-  color: white;
-  font-weight: bolder;
-  box-shadow: 4px 4px 0 0 #f3f3f4;
-  transition: 200ms;
-  text-decoration: none;
-  background-color: ${this.btnArray[0]};
-  visibility: none;
-`;
-}
-// Replace the button with the anchor element
-if (btn && btn.parentNode) {
-  btn.parentNode.replaceChild(anchor, btn);
-}
-anchor.addEventListener('mouseenter', () => {
-  anchor.style.boxShadow = '3px 3px white, 6px 6px 0 0 #d4d4d4';
-  anchor.style.transform = 'translate(-2px, -2px)';
+(btn as HTMLElement).addEventListener('mouseenter', () => {
+(btn as HTMLElement).style.boxShadow = '3px 3px white, 6px 6px 0 0 #d4d4d4';
+(btn as HTMLElement).style.transform = 'translate(-2px, -2px)';
 });
 
-anchor.addEventListener('mouseleave', () => {
-  anchor.style.boxShadow = '4px 4px 0 0 #f3f3f4';
-  anchor.style.transform = 'translate(0px, 0px)';
+(btn as HTMLElement).addEventListener('mouseleave', () => {
+(btn as HTMLElement).style.boxShadow = '4px 4px 0 0 #f3f3f4';
+(btn as HTMLElement).style.transform = 'translate(0px, 0px)';
 });
 
 // Adding change event listeners to radio buttons
@@ -153,41 +93,38 @@ radioButtons.forEach((radioButton) => {
     (logos as HTMLElement).style.backgroundImage = `url(${require('./assets/' + this.logosArray[arrayKey])})`;
     
     // Update anchor href and background color
-    anchor.style.visibility = 'none';
-    anchor.href = this.linkArray[arrayKey];
-    anchor.style.backgroundColor = this.btnArray[arrayKey];
+    const btnAnchor = btn as HTMLAnchorElement;
+    (btn as HTMLElement).style.visibility = 'none';
+    btnAnchor.href = this.linkArray[arrayKey];
+    (btn as HTMLElement).style.backgroundColor = this.btnArray[arrayKey];
 
-    if(viewpointWidth<950){
-      (title as HTMLElement).innerText = this.logosArray[arrayKey].split('.')[0];
 
-    }
+    (title as HTMLElement).innerText = this.logosArray[arrayKey].split('.')[0];
+
+  
+        // Reset visibility of all icons
+        const icons = document.querySelectorAll('img');
+        icons.forEach(icon => {
+          (icon as HTMLElement).style.visibility = 'visible';
+        });
+
+        // Reset font weight for all labels
+        const labels = document.querySelectorAll('label div');
+        labels.forEach(label => {
+            (label as HTMLElement).style.fontWeight = '500';
+            // (label as HTMLElement).style.lineHeight = '0%';
+        });
 
         // Hide the image associated with the selected radio button
-        if(viewpointWidth > 950){	
+        // const correspondingIcon = document.querySelector(`label[for="${radioButton.id}"] img`);
+    
+        //   (correspondingIcon as HTMLElement).style.visibility = 'hidden';
+        
+
+        // Set font weight for the corresponding label element
+        const correspondingLabel = document.querySelector(`label[for="${radioButton.id}"] div`);
+        (correspondingLabel as HTMLElement).style.fontWeight = '900';
   
-            // Reset visibility of all icons
-            const icons = document.querySelectorAll('img');
-            icons.forEach(icon => {
-              (icon as HTMLElement).style.visibility = 'visible';
-            });
-    
-            // Reset font weight for all labels
-            const labels = document.querySelectorAll('label div');
-            labels.forEach(label => {
-                (label as HTMLElement).style.fontWeight = '500';
-    
-            });
-
-          // Set font weight for the corresponding label element
-          const correspondingLabel = document.querySelector(`label[for="${radioButton.id}"] div`);
-          (correspondingLabel as HTMLElement).style.fontWeight = '900';
-        }
-
-        else{
-         
-          const correspondingIcon = document.querySelector(`label[for="${radioButton.id}"] img`);
-          (correspondingIcon as HTMLElement).style.visibility = 'visible';
-        }
 
         const description = document.querySelector(`.${styles.description}`);
       
@@ -231,7 +168,7 @@ radioButtons.forEach((radioButton) => {
         }, 200); // Adjust the delay as needed
 
         setTimeout(() => {
-          animateTextReveal(anchor as HTMLElement);
+          animateTextReveal(btn as HTMLElement);
         }, 250); // Adjust the delay as needed
 
     });
