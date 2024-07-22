@@ -13,7 +13,7 @@ export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPar
   public logosArray: string[] = ["Orientiert.png", "Informiert.svg", "Verbunden.svg"];
   public btnArray: string[] = ["#b7342e", "#115740", "#de7e44"];
 
-  public linkArray : string[] = ["https://twhrg.sharepoint.com/Orientiert/SitePages/Home.aspx","https://twhrg.sharepoint.com/Informiert/SitePages/Home.aspx","https://twhrg.sharepoint.com/Verbunden/SitePages/Home.aspx"];
+  public linkArray : string[] = ["https://plusacat.sharepoint.com/sites/StudentPlace/Orientiert/","https://plusacat.sharepoint.com/sites/StudentPlace/Informiert/","https://plusacat.sharepoint.com/sites/StudentPlace/Verbunden/"];
 
   public render(): void {
     this.domElement.innerHTML = `<body>
