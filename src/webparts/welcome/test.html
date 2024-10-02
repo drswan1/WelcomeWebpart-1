@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css">
+    <title>Welcome Webpart</title>
+</head>
+<body>
+    <div class="popup">
+        <div class="tabs">
+            <input type="radio" id="tab1" name="tab" checked="true">
+            <label for="tab1">
+                <img class="icons" src="assets/Orientiert.png" />
+                <div id="one">Orientiert</div>
+            </label>
+            <input type="radio" id="tab2" name="tab">
+            <label for="tab2">
+                <img class="icons" src="assets/Informiert.svg" />
+                <div id="two">Informiert</div>
+            </label>
+            <input type="radio" id="tab3" name="tab">
+            <label for="tab3">
+                <img class="icons" src="assets/Verbunden.svg" />
+                <div id="three">Verbunden</div>
+            </label>
+            <div class="marker">
+                <div id="top"></div>
+                <div id="middle"></div>
+                <div id="bottom"></div>
+            </div>
+        </div>
+        <div class="flexContainer">
+            <div class="title"></div>
+            <div class="logos"></div>
+            <div class="description">Hier ist dein digitaler Schreibtisch. Du kannst dir einen Überblick verschaffen und dein akademisches Leben organisieren. Du findest hier Info von allen Microsoft-Plattformen an einem Ort.</div>
+            <a class="btn" href="https://plusacat.sharepoint.com/sites/StudentPlace/Orientiert">Hier geht's lang!</a>
+        </div>
+    </div>
+
+    <script>
+        const descriptionArray = ["Emails, Kalender, To-Dos: Dein digitales Leben an der Uni an einem Ort.", "Aktuelle Veranstaltungen an der PLUS, Unterstützungsangebote, Orte zum Lernen und Zusammenarbeiten – all das findest du hier.", "Aktuelle Events deiner StVen, Angebote der ÖH und Vernetzungsmöglichkeiten in Salzburg – hier findest du alles, was neben der Uni zum Studienleben gehört!"];
+        const IDtoContentKey = {
+            tab1: 0,
+            tab2: 1,
+            tab3: 2
+        };
+        const logosArray = ["Orientiert.png", "Informiert.svg", "Verbunden.svg"];
+        const btnArray = ["#b7342e", "#115740", "#de7e44"];
+        const linkArray = ["https://plusacat.sharepoint.com/sites/StudentPlace/Orientiert", "https://plusacat.sharepoint.com/sites/StudentPlace/Informiert", "https://plusacat.sharepoint.com/sites/StudentPlace/Verbunden"];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            const descriptionElement = document.querySelector('.description');
+            const logos = document.querySelector('.logos');
+            const btn = document.querySelector('.btn');
+            const title = document.querySelector('.title');
+
+            title.innerText = logosArray[0].split('.')[0];
+            const viewpointWidth = window.innerWidth;
+
+            const correspondingLabel = document.querySelector('label[for="tab1"] div');
+            if (viewpointWidth >= 950) {
+                correspondingLabel.style.fontWeight = '900';
+                correspondingLabel.style.paddingBottom = '20%';
+            }
+
+            btn.addEventListener('mouseenter', () => {
+                btn.style.boxShadow = '3px 3px white, 6px 6px 0 0 #d4d4d4';
+                btn.style.transform = 'translate(-2px, -2px)';
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                btn.style.boxShadow = '4px 4px 0 0 #f3f3f4';
+                btn.style.transform = 'translate(0px, 0px)';
+            });
+
+            radioButtons.forEach((radioButton) => {
+                radioButton.addEventListener('change', () => {
+                    const radioButtonName = radioButton.id;
+                    const arrayKey = IDtoContentKey[radioButtonName];
+                    descriptionElement.innerText = descriptionArray[arrayKey];
+                    logos.style.backgroundImage = `url(assets/${logosArray[arrayKey]})`;
+
+                    btn.style.visibility = 'none';
+                    btn.href = linkArray[arrayKey];
+                    btn.style.backgroundColor = btnArray[arrayKey];
+
+                    title.innerText = logosArray[arrayKey].split('.')[0];
+
+                    const icons = document.querySelectorAll('img');
+                    icons.forEach(icon => {
+                        icon.style.visibility = 'visible';
+                    });
+
+                    const labels = document.querySelectorAll('label div');
+                    labels.forEach(label => {
+                        label.style.fontWeight = '500';
+                    });
+
+                    const correspondingLabel = document.querySelector(`label[for="${radioButton.id}"] div`);
+                    correspondingLabel.style.fontWeight = '900';
+
+                    const description = document.querySelector('.description');
+
+                    logos.style.opacity = '0';
+                    description.style.opacity = '0';
+                    btn.style.opacity = '0';
+
+                    const animationDuration = 1000;
+
+                    function animateTextReveal(element) {
+                        let opacity = 0;
+                        const startTime = performance.now();
+
+                        function animate(currentTime) {
+                            const elapsedTime = currentTime - startTime;
+                            opacity = (elapsedTime / animationDuration) * 1;
+                            element.style.opacity = `${Math.min(opacity, 1)}`;
+
+                            if (opacity < 1) {
+                                requestAnimationFrame(animate);
+                            }
+                        }
+
+                        requestAnimationFrame(animate);
+                    }
+
+                    setTimeout(() => {
+                        animateTextReveal(logos);
+                    }, 100);
+
+                    setTimeout(() => {
+                        animateTextReveal(description);
+                    }, 200);
+
+                    setTimeout(() => {
+                        animateTextReveal(btn);
+                    }, 250);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

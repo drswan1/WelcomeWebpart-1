@@ -1,19 +1,28 @@
-import { Version } from '@microsoft/sp-core-library';
-import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
+import {
+  Version
+} from '@microsoft/sp-core-library';
+import {
+  BaseClientSideWebPart
+} from '@microsoft/sp-webpart-base';
 
 
 import styles from './WelcomeWebPart.module.scss';
 
-export interface IWelcomeWebPartProps {
-}
+export interface IWelcomeWebPartProps {}
 
-export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPartProps> {
-  public descriptionArray: string[] = ["Hier ist dein digitaler Schreibtisch. Du kannst dir einen Überblick verschaffen und dein akademisches Leben organisieren. Du findest hier Info von allen Microsoft-Plattformen an einem Ort.", "Hier findest du alle wichtigen Informationen, die du für dein Studium brauchst. Du kannst dich über aktuelle Veranstaltungen informieren und dich mit anderen Studierenden austauschen.", "Aktuelle Events für Studierende, Info von der ÖH und studentische Plätze in Salzburg - hier kannst du dich mit Kolleg:innen, der PLUS und mit Salzburg vernetzen.", "Bei dieser Seite handelt sich um eine Sammlung allgemeiner Informationen, die dir dabei helfen sollen, Antworten auf Fragen im Zusammenhang mit der PLUS und deinem Studium zu finden.", "Hier wird's sozial - du findest Informationen zu STV-Veranstaltungen, Zusammenkünften und verschiedenen Studierenden-Communities. Verpasse kein Event an der PLUS!"];
-  public IDtoContentKey: { [key: string]: number } = { tab1: 0, tab2: 1, tab3: 2 };
+export default class WelcomeWebPart extends BaseClientSideWebPart < IWelcomeWebPartProps > {
+  public descriptionArray: string[] = ["Emails, Kalender, To-Dos: Dein digitales Leben an der Uni an einem Ort.", "Aktuelle Veranstaltungen an der PLUS, Unterstützungsangebote, Orte zum Lernen und Zusammenarbeiten – all das findest du hier.", "Aktuelle Events deiner StVen, Angebote der ÖH und Vernetzungsmöglichkeiten in Salzburg – hier findest du alles, was neben der Uni zum Studienleben gehört!"];
+  public IDtoContentKey: {
+    [key: string]: number
+  } = {
+    tab1: 0,
+    tab2: 1,
+    tab3: 2
+  };
   public logosArray: string[] = ["Orientiert.png", "Informiert.svg", "Verbunden.svg"];
   public btnArray: string[] = ["#b7342e", "#115740", "#de7e44"];
 
-  public linkArray : string[] = ["https://plusacat.sharepoint.com/sites/StudentPlace/Orientiert/","https://plusacat.sharepoint.com/sites/StudentPlace/Informiert/","https://plusacat.sharepoint.com/sites/StudentPlace/Verbunden/"];
+  public linkArray: string[] = ["https://plusacat.sharepoint.com/sites/StudentPlace/Orientiert", "https://plusacat.sharepoint.com/sites/StudentPlace/Informiert", "https://plusacat.sharepoint.com/sites/StudentPlace/Verbunden"];
 
   public render(): void {
     this.domElement.innerHTML = `<body>
@@ -43,7 +52,7 @@ export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPar
       <div class="${styles.flexContainer}">
       <div class="${styles.title}"></div>
         <div class="${styles.logos}"></div>
-        <div class="${styles.description}">Hier ist dein digitaler Schreibtisch. Du kannst dir einen Überblick verschaffen und dein akademisches Leben organisieren. Du findest hier Info von allen Microsoft-Plattformen an einem Ort.</div>
+        <div class="${styles.description}">Emails, Kalender, To-Dos: Dein digitales Leben an der Uni an einem Ort.</div>
         <a class="${styles.btn}" href="${this.linkArray[0]}">Hier geht's lang!</a>
         </div>
     </div>
@@ -53,55 +62,55 @@ export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPar
     </body>`;
 
 
-// Selecting necessary elements
-const radioButtons = this.domElement.querySelectorAll('input[type="radio"]');
-const descriptionElement = this.domElement.querySelector(`.${styles.description}`);
-const logos = this.domElement.querySelector(`.${styles.logos}`);
-const btn = this.domElement.querySelector(`.${styles.btn}`);
-const title = this.domElement.querySelector(`.${styles.title}`);
+    // Selecting necessary elements
+    const radioButtons = this.domElement.querySelectorAll('input[type="radio"]');
+    const descriptionElement = this.domElement.querySelector(`.${styles.description}`);
+    const logos = this.domElement.querySelector(`.${styles.logos}`);
+    const btn = this.domElement.querySelector(`.${styles.btn}`);
+    const title = this.domElement.querySelector(`.${styles.title}`);
 
 
-(title as HTMLElement).innerText = this.logosArray[0].split('.')[0];
-const viewpointWidth: number = window.innerWidth;
+    (title as HTMLElement).innerText = this.logosArray[0].split('.')[0];
+    const viewpointWidth: number = window.innerWidth;
 
-// const correspondingIcon = document.querySelector(`label[for="${styles.tab1}"] img`);
-const correspondingLabel = document.querySelector(`label[for="${styles.tab1}"] div`);
-if(viewpointWidth >= 950){
-// (correspondingIcon as HTMLElement).style.visibility = 'hidden';
-(correspondingLabel as HTMLElement).style.fontWeight = '900';
-(correspondingLabel as HTMLElement).style.paddingBottom = '20%';
-}
+    // const correspondingIcon = document.querySelector(`label[for="${styles.tab1}"] img`);
+    const correspondingLabel = document.querySelector(`label[for="${styles.tab1}"] div`);
+    if (viewpointWidth >= 950) {
+      // (correspondingIcon as HTMLElement).style.visibility = 'hidden';
+      (correspondingLabel as HTMLElement).style.fontWeight = '900';
+      (correspondingLabel as HTMLElement).style.paddingBottom = '20%';
+    }
 
-(btn as HTMLElement).addEventListener('mouseenter', () => {
-(btn as HTMLElement).style.boxShadow = '3px 3px white, 6px 6px 0 0 #d4d4d4';
-(btn as HTMLElement).style.transform = 'translate(-2px, -2px)';
-});
+    (btn as HTMLElement).addEventListener('mouseenter', () => {
+      (btn as HTMLElement).style.boxShadow = '3px 3px white, 6px 6px 0 0 #d4d4d4';
+      (btn as HTMLElement).style.transform = 'translate(-2px, -2px)';
+    });
 
-(btn as HTMLElement).addEventListener('mouseleave', () => {
-(btn as HTMLElement).style.boxShadow = '4px 4px 0 0 #f3f3f4';
-(btn as HTMLElement).style.transform = 'translate(0px, 0px)';
-});
+    (btn as HTMLElement).addEventListener('mouseleave', () => {
+      (btn as HTMLElement).style.boxShadow = '4px 4px 0 0 #f3f3f4';
+      (btn as HTMLElement).style.transform = 'translate(0px, 0px)';
+    });
 
-// Adding change event listeners to radio buttons
-radioButtons.forEach((radioButton) => {
+    // Adding change event listeners to radio buttons
+    radioButtons.forEach((radioButton) => {
 
-  radioButton.addEventListener('change', () => {
-    // Content change
-    const radioButtonName = radioButton.id.split('_')[0];
-    const arrayKey = this.IDtoContentKey[radioButtonName];
-    (descriptionElement as HTMLElement).innerText = this.descriptionArray[arrayKey];
-    (logos as HTMLElement).style.backgroundImage = `url(${require('./assets/' + this.logosArray[arrayKey])})`;
-    
-    // Update anchor href and background color
-    const btnAnchor = btn as HTMLAnchorElement;
-    (btn as HTMLElement).style.visibility = 'none';
-    btnAnchor.href = this.linkArray[arrayKey];
-    (btn as HTMLElement).style.backgroundColor = this.btnArray[arrayKey];
+      radioButton.addEventListener('change', () => {
+        // Content change
+        const radioButtonName = radioButton.id.split('_')[0];
+        const arrayKey = this.IDtoContentKey[radioButtonName];
+        (descriptionElement as HTMLElement).innerText = this.descriptionArray[arrayKey];
+        (logos as HTMLElement).style.backgroundImage = `url(${require('./assets/' + this.logosArray[arrayKey])})`;
+
+        // Update anchor href and background color
+        const btnAnchor = btn as HTMLAnchorElement;
+        (btn as HTMLElement).style.visibility = 'none';
+        btnAnchor.href = this.linkArray[arrayKey];
+        (btn as HTMLElement).style.backgroundColor = this.btnArray[arrayKey];
 
 
-    (title as HTMLElement).innerText = this.logosArray[arrayKey].split('.')[0];
+        (title as HTMLElement).innerText = this.logosArray[arrayKey].split('.')[0];
 
-  
+
         // Reset visibility of all icons
         const icons = document.querySelectorAll('img');
         icons.forEach(icon => {
@@ -111,23 +120,23 @@ radioButtons.forEach((radioButton) => {
         // Reset font weight for all labels
         const labels = document.querySelectorAll('label div');
         labels.forEach(label => {
-            (label as HTMLElement).style.fontWeight = '500';
-            // (label as HTMLElement).style.lineHeight = '0%';
+          (label as HTMLElement).style.fontWeight = '500';
+          // (label as HTMLElement).style.lineHeight = '0%';
         });
 
         // Hide the image associated with the selected radio button
         // const correspondingIcon = document.querySelector(`label[for="${radioButton.id}"] img`);
-    
+
         //   (correspondingIcon as HTMLElement).style.visibility = 'hidden';
-        
+
 
         // Set font weight for the corresponding label element
         const correspondingLabel = document.querySelector(`label[for="${radioButton.id}"] div`);
         (correspondingLabel as HTMLElement).style.fontWeight = '900';
-  
+
 
         const description = document.querySelector(`.${styles.description}`);
-      
+
 
         // Set initial opacity to 0
         (logos as HTMLElement).style.opacity = '0';
@@ -138,14 +147,14 @@ radioButtons.forEach((radioButton) => {
         const animationDuration = 1000;
 
         // Function to animate text reveal
-        function animateTextReveal(element: HTMLElement):void {
+        function animateTextReveal(element: HTMLElement): void {
           let opacity = 0;
-          
+
 
           const startTime = performance.now();
 
           // Animation loop
-          function animate(currentTime: number):void {
+          function animate(currentTime: number): void {
             const elapsedTime = currentTime - startTime;
             opacity = (elapsedTime / animationDuration) * 1; // Adjust the final opacity value as needed (1 for full opacity)
             element.style.opacity = `${Math.min(opacity, 1)}`;
@@ -171,12 +180,12 @@ radioButtons.forEach((radioButton) => {
           animateTextReveal(btn as HTMLElement);
         }, 250); // Adjust the delay as needed
 
+      });
     });
-  });
-}
+  }
 
 
-  protected onInit(): Promise<void> {
+  protected onInit(): Promise < void > {
     return super.onInit();
   }
 

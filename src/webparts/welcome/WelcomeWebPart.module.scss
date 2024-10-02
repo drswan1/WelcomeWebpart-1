@@ -36,6 +36,7 @@
     transition: opacity .4s ease-in-out;
     user-select: none;
     z-index: 100; 
+    align-self: center;
   }
 
   label:hover, input[type="radio"]:checked+label {
@@ -45,9 +46,11 @@
   .tabs {
     display : flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding-top: 2rem;
-
+    height: 7em;
+    width: 100%;
+    position: relative;
   }
 
   .icons{
@@ -66,6 +69,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: fit-content;
+    margin-top: 2.5rem;
   }
   
   .description {
@@ -74,6 +79,7 @@
     margin-right: 0.1rem;
     margin-bottom: 1rem;
     font-size: larger;
+    text-align: center;
   }
 
 /* For leftMarker */
@@ -82,6 +88,7 @@
   box-shadow: 0px 15px 36px -20px #e9e9e9;
   width: calc(50%);
   border-bottom-right-radius: 32px;
+  height: 7em;
 }
 
 /* For middleMarker */
@@ -91,6 +98,7 @@
   width: calc(20%);
   border-bottom-left-radius: 32px;
   border-bottom-right-radius: 32px;
+  height: 7em;
 }
 
 /* For rightMarker */
@@ -99,6 +107,7 @@
   box-shadow: 0px 15px 36px -20px #e9e9e9;
   width: calc(50%);
   border-bottom-left-radius: 32px;
+  height: 7em;
 }
 
 #one{visibility: hidden;}
@@ -108,7 +117,7 @@
 
 #tab1:checked ~ .marker{transform: translateX(-17%);}
 
-#tab2:checked ~ .marker{transform: translateX(-1.35%);}
+#tab2:checked ~ .marker{transform: translateX(0);}
 
 #tab3:checked ~ .marker{transform: translateX(14.7%);}
 
@@ -127,10 +136,9 @@
   transition: transform .2s ease-in-out;
   z-index: 0;
   }
-  .btn {                   //fix problem of button postioning when description text is too long
-    display: block;
-    position: absolute;
-    top:95%;
+
+
+  .btn {                   
     border-radius: 3px;
     padding: 8px 14px;
     cursor: pointer;
@@ -222,7 +230,7 @@
       height: 2.2rem;
       width: 2.2rem;
     }
-    //__________________________Tabs__________________________//
+   
     label[for="${styles.tab1}"] {
       /* Ensure the label is displayed as a block element */
       display: block;
@@ -236,7 +244,7 @@
       /* Reset any previous text-align property */
       text-align: inherit;
     }
-    //__________________________Tabs__________________________//
+   
     
     label[for="${styles.tab2}"] {
       /* Ensure the label is displayed as a block element */
@@ -251,7 +259,7 @@
       /* Reset any previous text-align property */
       text-align: inherit;
     }
-    //__________________________Tabs__________________________//
+    
     label[for="${styles.tab3}"] {
       /* Ensure the label is displayed as a block element */
       display: block;
@@ -288,10 +296,10 @@
     
     .flexContainer {
       display: flex;
-      position: relative;
+      height: auto;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      width: 100%;
     }
     .logos {
       background-image: url("./assets/Orientiert.png");
@@ -305,11 +313,12 @@
       width: 80%;
       margin-top: 0.5rem;
       margin-right: 0.1rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      
     }
-    .btn {                   //fix problem of button postioning when description text is too long
-      display: block;
-      position: absolute;
-      top:110%;
+    .btn {                 
+  
       border-radius: 3px;
       padding: 8px 14px;
       cursor: pointer;
@@ -320,11 +329,11 @@
       box-shadow: 4px 4px 0 0 #f3f3f4;
       transition: 200ms;
       text-decoration: none;
+    
     }
   }
 
 
-//--------------------------------Flex Container-------------------------//
 
 
 
