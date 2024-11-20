@@ -1,9 +1,9 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "welcome-client-side-solution",
-    "id": "f33075d5-7e01-420f-bc6b-ebec48f9496a",
-    "version": "1.0.1.0",
+    "name": "welcome-webpart-client-side-solution",
+    "id": "a39c05a7-0af2-4c1d-9367-aaf4755421b0",
+    "version": "2.0.1.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
@@ -12,14 +12,14 @@
       "websiteUrl": "",
       "privacyUrl": "",
       "termsOfUseUrl": "",
-      "mpnId": "Undefined-1.18.1"
+      "mpnId": "Undefined-1.20.0"
     },
     "metadata": {
       "shortDescription": {
-        "default": "Welcome description"
+        "default": "welcome-webpart description"
       },
       "longDescription": {
-        "default": "Welcome description"
+        "default": "welcome-webpart description"
       },
       "screenshotPaths": [],
       "videoUrl": "",
@@ -27,14 +27,14 @@
     },
     "features": [
       {
-        "title": "welcome Feature",
-        "description": "The feature that activates elements of the welcome solution.",
-        "id": "8573dc81-c97d-4ee7-a156-7dd658014cdc",
-        "version": "1.0.0.0"
+        "title": "welcome-webpart Feature",
+        "description": "The feature that activates elements of the welcome-webpart solution.",
+        "id": "f22e7dba-ed55-4a93-9465-67e627ab04a5",
+        "version": "2.0.1.0"
       }
     ]
   },
   "paths": {
-    "zippedPackage": "solution/welcome.sppkg"
+    "zippedPackage": "solution/welcome-webpart.sppkg"
   }
 }

@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "es5",
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "jsx": "react",
     "declaration": true,
@@ -13,6 +13,8 @@
     "outDir": "lib",
     "inlineSources": false,
     "noImplicitAny": true,
+    "strict": true,
+    "esModuleInterop": true,
 
     "typeRoots": [
       "./node_modules/@types",
@@ -22,10 +24,8 @@
       "webpack-env"
     ],
     "lib": [
-      "es2015",
       "dom",
-      "es2015.collection",
-      "es2015.promise"
+      "es2015"
     ]
   },
   "include": [

@@ -2,17 +2,17 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
   "version": "2.0",
   "bundles": {
-    "welcome-web-part": {
+    "welcome-webpart-web-part": {
       "components": [
         {
-          "entrypoint": "./lib/webparts/welcome/WelcomeWebPart.js",
-          "manifest": "./src/webparts/welcome/WelcomeWebPart.manifest.json"
+          "entrypoint": "./lib/webparts/welcomeWebpart/WelcomeWebpartWebPart.js",
+          "manifest": "./src/webparts/welcomeWebpart/WelcomeWebpartWebPart.manifest.json"
         }
       ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "WelcomeWebPartStrings": "lib/webparts/welcome/loc/{locale}.js"
+    "WelcomeWebpartWebPartStrings": "lib/webparts/welcomeWebpart/loc/{locale}.js"
   }
 }
