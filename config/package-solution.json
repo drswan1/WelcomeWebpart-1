@@ -3,7 +3,7 @@
   "solution": {
     "name": "welcome-webpart-client-side-solution",
     "id": "a39c05a7-0af2-4c1d-9367-aaf4755421b0",
-    "version": "2.0.1.0",
+    "version": "2.0.1.5",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,

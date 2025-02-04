@@ -1,6 +1,6 @@
 import { Version } from '@microsoft/sp-core-library';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
-// import { TouchSwipeHandler } from './TouchSwipeHandler';
+import { touchSwipeHandler } from './TouchSwipeHandler';
 
 import styles from './WelcomeWebpartWebPart.module.scss';
 
@@ -12,9 +12,10 @@ export default class WelcomeWebpartWebPart extends BaseClientSideWebPart<IWelcom
   public render(): void {
     this.domElement.innerHTML = `<div class="${ styles.welcomeWebpart }">
    <div class="${styles.wrapper}">
-    <div class="${styles.container}">
+    <div id="${styles.container}">
         <input type="radio" name="slide" id="c1" checked>
         <label for="c1" class="${styles.card}">
+        <div class="${styles.cardTitle}">Orientiert</div>
             <div class="${styles.rowDescription}">
                 <div class="${styles.description}">
                     <div class="${styles.title}">Orientiert</div>
@@ -28,6 +29,7 @@ export default class WelcomeWebpartWebPart extends BaseClientSideWebPart<IWelcom
         </label>
         <input type="radio" name="slide" id="c2" >
         <label for="c2" class="${styles.card}">
+        <div class="${styles.cardTitle}">Informiert</div>
               <div class="${styles.rowDescription}">
                 <div class="${styles.description}">
                     <div class="${styles.title}">Informiert</div>
@@ -41,6 +43,7 @@ export default class WelcomeWebpartWebPart extends BaseClientSideWebPart<IWelcom
         </label>
         <input type="radio" name="slide" id="c3" >
         <label for="c3" class="${styles.card}">
+        <div class="${styles.cardTitle}">Verbunden</div>
                     <div class="${styles.rowDescription}">
                 <div class="${styles.description}">
                     <div class="${styles.title}">Verbunden</div>
@@ -55,7 +58,10 @@ export default class WelcomeWebpartWebPart extends BaseClientSideWebPart<IWelcom
     </div>
 </div>
 </div>`;
+touchSwipeHandler();
 }
+
+
 
 
 

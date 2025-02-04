@@ -2,13 +2,14 @@
 
 ## Summary
 
-Short summary on functionality and used technologies.
+Welcome web-part, a styling webpart that dispalys small summaries of the different sharepoint subsites.
 
-[picture of the solution in action, if possible]
 
 ## Used SharePoint Framework Version
 
 ![version](https://img.shields.io/badge/version-1.20.0-green.svg)
+
+* Supported in SharePoint Online
 
 ## Applies to
 
@@ -19,18 +20,19 @@ Short summary on functionality and used technologies.
 
 ## Prerequisites
 
-> Any special pre-requisites?
+- Node 18.20 required
 
 ## Solution
 
 | Solution    | Author(s)                                               |
 | ----------- | ------------------------------------------------------- |
-| folder name | Author details (name, company, twitter alias with link) |
+| Welcome-webpart | Juan-Gabriel Farias Sedalski, juan.farias40@gmail.com, Universität Salzburg |
 
 ## Version history
 
 | Version | Date             | Comments        |
 | ------- | ---------------- | --------------- |
+| 2.0.1.5 | Demcember, 2024  | Complete design and logic overhaul, v2.0 upgrade|
 | 1.1     | March 10, 2021   | Update comment  |
 | 1.0     | January 29, 2021 | Initial release |
 
@@ -48,21 +50,21 @@ Short summary on functionality and used technologies.
   - **npm install**
   - **gulp serve**
 
-> Include any additional steps as needed.
+
+
+
+To rebundle the webpart, within this SPFx solution root folder run the following commands
+  * in the command line run:
+  
+  ```powershell
+  gulp build
+  gulp bundle
+  gulp package-solution
+  ```
 
 ## Features
 
-Description of the extension that expands upon high-level summary above.
-
-This extension illustrates the following concepts:
-
-- topic 1
-- topic 2
-- topic 3
-
-> Notice that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions advance.
-
-> Share your web part with others through Microsoft 365 Patterns and Practices program to get visibility and exposure. More details on the community, open-source projects and other activities from http://aka.ms/m365pnp.
+This webpart is used as a landing webpart to explain different substies of our sharepoint solution. Additionally, each button's link is hard-coded. Mobile responsiveness is built-in.
 
 ## References
 

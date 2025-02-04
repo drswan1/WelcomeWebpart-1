@@ -15,7 +15,7 @@
   justify-content: center;
 }
 
-.container {
+#container {
   height: 100%;
   width: 100%;
   display: flex;
@@ -36,6 +36,24 @@
   transition: .6s cubic-bezier(.28,-0.03,0,.99);
   box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
   align-items: flex-end;
+  opacity: .8;
+}
+
+.card:hover {
+  opacity: 1;
+}
+
+.cardTitle{
+display: block;
+justify-self: center;
+align-self: center;
+position: absolute;
+bottom: 50%;
+transform: rotate(90deg);
+color: white;
+font-size: 1.5rem;
+font-weight: bolder;
+  
 }
 
 .rowDescription{
@@ -78,10 +96,9 @@
 .title{
   color: white;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 700;
   text-align: center;
-
   justify-self: center;
 }
 
@@ -100,6 +117,11 @@ input {
 
 input:checked + label {
   width: 75.9%;
+  opacity: 1;
+}
+
+input:checked + label .cardTitle {
+  opacity: 0;
 }
 
 
