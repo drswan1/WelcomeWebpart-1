@@ -8,6 +8,7 @@ Welcome web-part, a styling webpart that dispalys small summaries of the differe
 ## Used SharePoint Framework Version
 
 ![version](https://img.shields.io/badge/version-1.20.0-green.svg)
+![Node.js v18](https://img.shields.io/badge/Node.js-v18-green.svg)
 
 * Supported in SharePoint Online
 
@@ -26,7 +27,7 @@ Welcome web-part, a styling webpart that dispalys small summaries of the differe
 
 | Solution    | Author(s)                                               |
 | ----------- | ------------------------------------------------------- |
-| Welcome-webpart | Juan-Gabriel Farias Sedalski, juan.farias40@gmail.com, Universität Salzburg |
+| Welcome-webpart | [Juan-Gabriel Farias Sedalski](https://github.com/drswan1), Universität Salzburg |
 
 ## Version history
 
