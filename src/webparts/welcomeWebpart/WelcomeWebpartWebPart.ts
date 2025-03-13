@@ -33,7 +33,7 @@ export default class WelcomeWebpartWebPart extends BaseClientSideWebPart<IWelcom
               <div class="${styles.rowDescription}">
                 <div class="${styles.description}">
                     <div class="${styles.title}">Informiert</div>
-                    <div class="${styles.content}">Aktuelle Veranstaltungen an der PLUS, Unterstützungsangebote, Orte zum Lernen und Zusammenarbeiten – all das findest du hier.</div>
+                    <div class="${styles.content}">Aktuelle Veranstaltungen an der Universität Salzburg, Unterstützungsangebote, Orte zum Lernen und Zusammenarbeiten – all das findest du hier.</div>
                     <a class="${styles.btn}" href="${"https://plusacat.sharepoint.com/sites/StudentPlace/Informiert"}">Hier geht's lang!</a>
                 </div>
               </div>
