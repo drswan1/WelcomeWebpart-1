@@ -165,6 +165,9 @@ input:checked + label .btn {
 }
 
   @media (max-width: 950px) {
+    #container{
+      width: 120%;
+    }
     .wrapper {
       height: 50vh;
     }
@@ -181,6 +184,9 @@ input:checked + label .btn {
   }
 
   @media (max-width: 750px) {
+    #container{
+      width: 120%;
+    }
       .wrapper {
         height: 60vh;
       }
